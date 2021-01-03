@@ -1,6 +1,9 @@
-class Game:
+from Pawn import Pawn
 
-    def __init__(self,player1,player2):
+
+class Game(Pawn):
+
+    def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
         self.board = [[' '] * 8] * 4
@@ -19,4 +22,4 @@ class Game:
 g1 = Game('Doak', 'Heidi')
 g1.fill_board()
 g1.display_board()
-
+g1.display_pawns()
