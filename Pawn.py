@@ -1,3 +1,4 @@
+
 class Pawn:
 
     def __init__(self):
@@ -9,5 +10,3 @@ class Pawn:
         print(self.player2_pawns)
 
 
-a = Pawn()
-a.display_pawns()

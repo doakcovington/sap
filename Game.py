@@ -20,6 +20,9 @@ class Game(Pawn):
 
 
 g1 = Game('Doak', 'Heidi')
+pawn = Pawn()
+pawn.display_pawns()
 g1.fill_board()
 g1.display_board()
-g1.display_pawns()
+
+
