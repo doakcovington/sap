@@ -18,11 +18,13 @@ class Game(Pawn):
         for row in self.board:
             print(row)
 
+    @staticmethod
+    def start_game_message():
+        print("Are you the smartest pawn?")
+
 
 g1 = Game('Doak', 'Heidi')
 pawn = Pawn()
-pawn.display_pawns()
-g1.fill_board()
-g1.display_board()
+g1.start_game_message()
 
 
