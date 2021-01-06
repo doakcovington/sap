@@ -8,6 +8,16 @@ class Game(Pawn):
         self.player2 = player2
         self.board = [[' '] * 8] * 4
 
+    def start_game(self):
+        if self.player1 and self.player2:
+            print('Welcome to SAP')
+            user_input = input('Enter Y to start a new game')
+            if user_input.lower() == 'y':
+                self.fill_board()
+                self.display_board()
+            else:
+                print('SHUT IT DOWN')
+
     def fill_board(self):
         self.board.insert(0, ['X'] * 8)
         self.board.insert(1, ['X'] * 8)
@@ -26,5 +36,6 @@ class Game(Pawn):
 g1 = Game('Doak', 'Heidi')
 pawn = Pawn()
 g1.start_game_message()
+g1.start_game()
 
 
