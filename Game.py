@@ -28,6 +28,13 @@ class Game(Pawn):
         for row in self.board:
             print(row)
 
+    def check_winning_condition(self):
+        for row in self.board:
+            if 'W' in row[0] or 'W' in row[1]:
+                print('Player 1 Wins!')
+            elif 'E' in row[6] or 'E' in row[7]:
+                print('Player 2 Wins!')
+
     @staticmethod
     def start_game_message():
         print("Are you the smartest pawn?")
