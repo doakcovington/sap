@@ -50,7 +50,15 @@ class Game(Pawn):
 
     def game_over(self):
         if self.winning_condition():
-            return True 
+            return True
+
+    def play_game(self):
+        while not self.game_over():
+            self.game_turn()
+
+    def game_turn(self):
+        self.display_turn()
+        self.select_pawn()
 
     @staticmethod
     def select_pawn():
@@ -66,5 +74,4 @@ g1 = Game('Doak', 'Heidi')
 pawn = Pawn()
 g1.start_game_message()
 g1.start_game()
-
-
+g1.play_game()
