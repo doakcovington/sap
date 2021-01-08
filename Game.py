@@ -6,6 +6,7 @@ class Game(Pawn):
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
+        self.turn = 1
         self.board = [[' '] * 8] * 4
 
     def start_game(self):
@@ -15,6 +16,7 @@ class Game(Pawn):
             if user_input.lower() == 'y':
                 self.fill_board()
                 self.display_board()
+                self.display_turn()
             else:
                 print('SHUT IT DOWN')
 
@@ -34,6 +36,12 @@ class Game(Pawn):
                 print('Player 1 Wins!')
             elif 'E' in row[6] or 'E' in row[7]:
                 print('Player 2 Wins!')
+
+    def display_turn(self):
+        if self.turn % 2 != 0:
+            print("Player 1 Turn:")
+        else:
+            print("Player 2 Turn:")
 
     @staticmethod
     def start_game_message():
