@@ -44,6 +44,11 @@ class Game(Pawn):
             print("Player 2 Turn:")
 
     @staticmethod
+    def select_pawn():
+        selected_pawn = input('Select a Pawn:')
+        return int(selected_pawn)
+
+    @staticmethod
     def start_game_message():
         print("Are you the smartest pawn?")
 
