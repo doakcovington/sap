@@ -48,6 +48,10 @@ class Game(Pawn):
         else:
             print("Player 2 Turn:")
 
+    def game_over(self):
+        if self.winning_condition():
+            return True 
+
     @staticmethod
     def select_pawn():
         selected_pawn = input('Select a Pawn:')
