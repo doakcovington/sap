@@ -21,10 +21,10 @@ class Game(Pawn):
                 print('SHUT IT DOWN')
 
     def fill_board(self):
-        self.board.insert(0, ['X'] * 8)
-        self.board.insert(1, ['X'] * 8)
-        self.board.append(['X'] * 8)
-        self.board.append(['X'] * 8)
+        self.board.insert(0, ['x'] * 8)
+        self.board.insert(1, ['x'] * 8)
+        self.board.append(['x'] * 8)
+        self.board.append(['x'] * 8)
 
     def display_board(self):
         for row in self.board:
@@ -59,6 +59,11 @@ class Game(Pawn):
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
+
+    def display_selected_pawn(self):
+        selected_pawn = self.select_pawn()
+        for spot in self.board:
+            spot[selected_pawn] = "X"
 
     @staticmethod
     def select_pawn():
