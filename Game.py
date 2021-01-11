@@ -7,7 +7,7 @@ class Game(Pawn):
         self.player1 = player1
         self.player2 = player2
         self.turn = 1
-        self.board = [[' '] * 8] * 4
+        self.board = ([[' '] * 8] * 4)
 
     def start_game(self):
         if self.player1 and self.player2:
@@ -68,10 +68,9 @@ class Game(Pawn):
     #         spot[selected_pawn] = "P"
 
     def select_pawn(self):
+        selected_row = input('Select a Row:')
         selected_pawn = input('Select a Pawn:')
-        for spot in self.board:
-            spot[int(selected_pawn)] = "P"
-        # return int(selected_pawn)
+        self.board[int(selected_row)][int(selected_pawn)] = 'P'
 
     @staticmethod
     def start_game_message():
