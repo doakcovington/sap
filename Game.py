@@ -16,7 +16,6 @@ class Game(Pawn):
             if user_input.lower() == 'y':
                 self.fill_board()
                 self.display_board()
-                self.display_turn()
             else:
                 print('SHUT IT DOWN')
 
@@ -53,12 +52,14 @@ class Game(Pawn):
             return True
 
     def play_game(self):
-        while not self.game_over():
-            self.game_turn()
+        # while not self.game_over():
+        self.game_turn()
 
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
+        self.display_selected_pawn()
+        self.display_board()
 
     def display_selected_pawn(self):
         selected_pawn = self.select_pawn()
