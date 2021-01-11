@@ -16,6 +16,7 @@ class Game(Pawn):
             if user_input.lower() == 'y':
                 self.fill_board()
                 self.display_board()
+                self.play_game()
             else:
                 print('SHUT IT DOWN')
 
@@ -58,18 +59,19 @@ class Game(Pawn):
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
-        self.display_selected_pawn()
+        # self.display_selected_pawn()
         self.display_board()
 
-    def display_selected_pawn(self):
-        selected_pawn = self.select_pawn()
-        for spot in self.board:
-            spot[selected_pawn] = "X"
+    # def display_selected_pawn(self):
+    #     selected_pawn = self.select_pawn()
+    #     for spot in self.board:
+    #         spot[selected_pawn] = "P"
 
-    @staticmethod
-    def select_pawn():
+    def select_pawn(self):
         selected_pawn = input('Select a Pawn:')
-        return int(selected_pawn)
+        for spot in self.board:
+            spot[int(selected_pawn)] = "P"
+        # return int(selected_pawn)
 
     @staticmethod
     def start_game_message():
@@ -80,4 +82,3 @@ g1 = Game('Doak', 'Heidi')
 pawn = Pawn()
 g1.start_game_message()
 g1.start_game()
-g1.play_game()
