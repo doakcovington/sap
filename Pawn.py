@@ -10,5 +10,3 @@ class Pawn:
         print(self.player1_pawns)
         print('Player 2 Pawns:')
         print(self.player2_pawns)
-
-

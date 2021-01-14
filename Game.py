@@ -66,12 +66,12 @@ class Game(Pawn):
     def select_pawn(self):
         selected_row = input('Select a Row:')
         selected_pawn = input('Select a Pawn:')
-        self.board[int(selected_row)][int(selected_pawn)] = 'P'
+        self.board[int(selected_row) - 1][int(selected_pawn) - 1] = 'P'
 
     def move_pawn(self):
         select_row = input('Select a Row:')
         select_spot = input('Select a Spot:')
-        self.board[int(select_row)][int(select_spot)] = 'P'
+        self.board[int(select_row) - 1][int(select_spot) - 1] = 'P'
 
     @staticmethod
     def start_game_message():
