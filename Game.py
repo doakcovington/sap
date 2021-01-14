@@ -53,24 +53,24 @@ class Game(Pawn):
             return True
 
     def play_game(self):
-        # while not self.game_over():
         self.game_turn()
 
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
-        # self.display_selected_pawn()
         self.display_board()
-
-    # def display_selected_pawn(self):
-    #     selected_pawn = self.select_pawn()
-    #     for spot in self.board:
-    #         spot[selected_pawn] = "P"
+        self.move_pawn()
+        self.display_board()
 
     def select_pawn(self):
         selected_row = input('Select a Row:')
         selected_pawn = input('Select a Pawn:')
         self.board[int(selected_row)][int(selected_pawn)] = 'P'
+
+    def move_pawn(self):
+        select_row = input('Select a Row:')
+        select_spot = input('Select a Spot:')
+        self.board[int(select_row)][int(select_spot)] = 'P'
 
     @staticmethod
     def start_game_message():
