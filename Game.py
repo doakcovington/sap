@@ -8,24 +8,18 @@ class Game(Pawn):
         self.player1 = player1
         self.player2 = player2
         self.turn = 1
-        self.board = ([[' '] * 8] * 4)
+        self.board = ([[''] * 8] * 8)
 
     def start_game(self):
+        print(self.board)
         if self.player1 and self.player2:
             print('Welcome to SAP')
             user_input = input('Enter Y to start a new game')
             if user_input.lower() == 'y':
-                self.fill_board()
                 self.display_board()
                 self.play_game()
             else:
                 print('SHUT IT DOWN')
-
-    def fill_board(self):
-        self.board.insert(0, ['x'] * 8)
-        self.board.insert(1, ['x'] * 8)
-        self.board.append(['x'] * 8)
-        self.board.append(['x'] * 8)
 
     def display_board(self):
         for row in self.board:
@@ -59,14 +53,15 @@ class Game(Pawn):
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
+        print(self.board)
         self.display_board()
         self.move_pawn()
         self.display_board()
 
     def select_pawn(self):
-        selected_row = input('Select a Row:')
-        selected_pawn = input('Select a Pawn:')
-        self.board[int(selected_row) - 1][int(selected_pawn) - 1] = 'P'
+        selected_row = int(input('Select a Row:'))
+        selected_pawn = int(input('Select a Pawn:'))
+        self.board[selected_row][selected_pawn] = 'P'
 
     def move_pawn(self):
         select_row = input('Select a Row:')
