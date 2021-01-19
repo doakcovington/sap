@@ -16,15 +16,32 @@ class Game(Pawn):
             print('Welcome to SAP')
             user_input = input('Enter Y to start a new game')
             if user_input.lower() == 'y':
-                self.fill_board()
+                self.fill_top_board()
+                self.fill_bot_board()
                 self.display_board()
                 self.play_game()
             else:
                 print('SHUT IT DOWN')
 
-    def fill_board(self):
-        self.board[0][0] = 'W'
+    def fill_top_board(self):
+        top = 0
+        while top < 8:
+            self.board[0][top] = 'W'
+            top += 1
+        bot = 0
+        while bot < 8:
+            self.board[1][bot] = 'W'
+            bot += 1
 
+    def fill_bot_board(self):
+        top = 0
+        while top < 8:
+            self.board[6][top] = 'E'
+            top += 1
+        bot = 0
+        while bot < 8:
+            self.board[7][bot] = 'E'
+            bot += 1
 
     def display_board(self):
         for row in self.board:
