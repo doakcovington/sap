@@ -8,7 +8,7 @@ class Game(Pawn):
         self.player1 = player1
         self.player2 = player2
         self.turn = 1
-        self.board = ([[''] * 8] * 8)
+        self.board = [[' '] * 8 for _ in range(8)]
 
     def start_game(self):
         print(self.board)
@@ -16,10 +16,15 @@ class Game(Pawn):
             print('Welcome to SAP')
             user_input = input('Enter Y to start a new game')
             if user_input.lower() == 'y':
+                self.fill_board()
                 self.display_board()
                 self.play_game()
             else:
                 print('SHUT IT DOWN')
+
+    def fill_board(self):
+        self.board[0][0] = 'W'
+
 
     def display_board(self):
         for row in self.board:
