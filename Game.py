@@ -90,12 +90,7 @@ class Game(Pawn):
         select_spot = input('Select a Spot:')
         self.board[int(select_row) - 1][int(select_spot) - 1] = 'P'
 
-    @staticmethod
-    def start_game_message():
-        print("Are you the smartest pawn?")
-
 
 g1 = Game('Doak', 'Heidi')
 pawn = Pawn()
-g1.start_game_message()
 g1.start_game()
