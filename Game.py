@@ -75,10 +75,11 @@ class Game(Pawn):
     def game_turn(self):
         self.display_turn()
         self.select_pawn()
-        print(self.board)
         self.display_board()
         self.move_pawn()
+        self.remove_pawn()
         self.display_board()
+        self.turn += 1
 
     def select_pawn(self):
         selected_row = int(input('Select a Row:'))
@@ -88,7 +89,13 @@ class Game(Pawn):
     def move_pawn(self):
         select_row = int(input('Select a Row:'))
         select_spot = int(input('Select a Spot:'))
-        self.board[select_row - 1][int(select_spot) - 1] = 'P'
+        self.board[select_row - 1][int(select_spot) - 1] = 'W'
+
+    def remove_pawn(self):
+        for index, row in enumerate(self.board):
+            for count, spot in enumerate(row):
+                if spot == "P":
+                    self.board[index][count] = ' '
 
 
 g1 = Game('Doak', 'Heidi')
