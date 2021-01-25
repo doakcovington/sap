@@ -49,7 +49,7 @@ class Game(Pawn):
 
     def winning_condition(self):
         for row in self.board:
-            if 'W' in row[0] or 'W' in row[1] or 'E' in row[6] or 'E' in row[7]:
+            if 'E' in row[0] or 'E' in row[1] or 'W' in row[6] or 'W' in row[7]:
                 return True
 
     def check_winning_condition(self):
