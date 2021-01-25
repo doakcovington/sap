@@ -82,9 +82,17 @@ class Game(Pawn):
         self.turn += 1
 
     def select_pawn(self):
-        selected_row = int(input('Select a Row:'))
-        selected_pawn = int(input('Select a Pawn:'))
-        self.board[selected_row - 1][selected_pawn - 1] = 'P'
+        valid_selection = False
+        selected_row = int(input('Select a Row:')) - 1
+        selected_pawn = int(input('Select a Pawn:')) - 1
+        while not valid_selection:
+            if self.board[selected_row][selected_pawn] == 'W' or self.board[selected_row][selected_pawn] == 'E':
+                self.board[selected_row][selected_pawn] = 'P'
+                valid_selection = True
+            else:
+                print("Please select a pawn")
+                selected_row = int(input('Select a Row:')) - 1
+                selected_pawn = int(input('Select a Pawn:')) - 1
 
     def move_pawn(self):
         select_row = int(input('Select a Row:'))
