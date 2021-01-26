@@ -95,11 +95,14 @@ class Game(Pawn):
                 selected_pawn = int(input('Select a Pawn:')) - 1
 
     def move_pawn(self):
-        select_row = int(input('Select a Row:'))
-        select_spot = int(input('Select a Spot:'))
-        self.board[select_row - 1][int(select_spot) - 1] = 'W'
+        select_row = int(input('Select a Row:')) - 1
+        select_spot = int(input('Select a Spot:')) - 1
+        if self.turn % 2 != 0:
+            self.board[select_row][int(select_spot)] = 'W'
+        else:
+            self.board[select_row][int(select_spot)] = 'E'
 
-    def remove_pawn(self):
+     def remove_pawn(self):
         for index, row in enumerate(self.board):
             for count, spot in enumerate(row):
                 if spot == "P":
