@@ -44,8 +44,8 @@ class Game(Pawn):
             bot += 1
 
     def display_board(self):
-        for row in self.board:
-            print(row)
+        for (i, row) in enumerate(self.board, start=1):
+            print(i, row)
 
     def winning_condition(self):
         for row in self.board:
@@ -70,6 +70,7 @@ class Game(Pawn):
             return True
 
     def play_game(self):
+        self.game_turn()
         self.game_turn()
 
     def game_turn(self):
@@ -102,7 +103,7 @@ class Game(Pawn):
         else:
             self.board[select_row][int(select_spot)] = 'E'
 
-     def remove_pawn(self):
+    def remove_pawn(self):
         for index, row in enumerate(self.board):
             for count, spot in enumerate(row):
                 if spot == "P":
